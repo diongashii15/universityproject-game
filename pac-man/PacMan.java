@@ -197,7 +197,7 @@ public class PacMan extends JPanel implements ActionListener, KeyListener {
             }
         }
     }
-
+    // paintComponent and draw:
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         draw(g);
@@ -355,3 +355,4 @@ public class PacMan extends JPanel implements ActionListener, KeyListener {
         }
     }
 }
+
