@@ -234,6 +234,14 @@ public class PacMan extends JPanel implements ActionListener, KeyListener {
         pacman.x += pacman.velocityX;
         pacman.y += pacman.velocityY;
 
+
+        if (pacman.x < 0) {
+            pacman.x = boardWidth - pacman.width;
+        } else if (pacman.x + pacman.width > boardWidth) {
+            pacman.x = 0;
+        }
+
+
         //check wall collisions
         for (Block wall : walls) {
             if (collision(pacman, wall)) {
@@ -252,6 +260,12 @@ public class PacMan extends JPanel implements ActionListener, KeyListener {
                     return;
                 }
                 resetPositions();
+            }
+
+            if (ghost.x < 0) {
+                ghost.x = boardWidth - ghost.width;
+            } else if (ghost.x + ghost.width > boardWidth) {
+                ghost.x = 0;
             }
 
             if (ghost.y == tileSize*9 && ghost.direction != 'U' && ghost.direction != 'D') {
